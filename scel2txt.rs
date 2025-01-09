@@ -2,6 +2,7 @@ use std::collections::HashMap;
 use std::fs::{self, File};
 use std::io::{Read, Write};
 use std::path::Path;
+use std::env;
 
 struct ScelParser {
     py_table: HashMap<u16, String>,
@@ -95,7 +96,13 @@ impl ScelParser {
 }
 
 fn main() {
-    let in_path = ".";
+    let args: Vec<String> = env::args().collect();
+    let in_path = if args.len() > 1 {
+        &args[1]
+    } else {
+        "."
+    };
+
     let out_path = "result.txt";
 
     let mut parser = ScelParser::new();
