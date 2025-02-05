@@ -4,8 +4,10 @@
 
 ## 使用
 
-编译后将全部scel文件当在根目录下执行
+编译后在scel文件目录下执行
+
+scel_path: scel文件存在的路径, 默认为当前路径
 
 ```shell
-./scel2txt
+./scel2txt scel_path
 ```
